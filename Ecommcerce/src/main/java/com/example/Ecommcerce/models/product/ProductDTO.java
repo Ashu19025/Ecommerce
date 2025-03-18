@@ -1,0 +1,17 @@
+package com.example.Ecommcerce.models.product;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ProductDTO {
+    private String prodName;
+    private String manufaturer;
+    private Double price;
+    private Integer quantity;
+
+}

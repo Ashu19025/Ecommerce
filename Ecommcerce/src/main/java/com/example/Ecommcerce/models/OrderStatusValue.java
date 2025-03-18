@@ -1,5 +1,5 @@
 package com.example.Ecommcerce.models;
 
-public enum ProductStatusValue {
+public enum OrderStatusValue {
     SUCCESS,PENDING,CANCELLED
 }

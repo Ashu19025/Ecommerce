@@ -1,4 +1,4 @@
-package com.example.Ecommcerce.models;
+package com.example.Ecommcerce.models.customer;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;

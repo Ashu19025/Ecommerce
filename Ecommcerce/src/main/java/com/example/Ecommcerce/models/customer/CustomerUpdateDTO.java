@@ -1,6 +1,7 @@
-package com.example.Ecommcerce.models;
+package com.example.Ecommcerce.models.customer;
 
 
+import com.example.Ecommcerce.models.Address;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.HashMap;
+import java.util.Map;
 
 @NoArgsConstructor
 @AllArgsConstructor

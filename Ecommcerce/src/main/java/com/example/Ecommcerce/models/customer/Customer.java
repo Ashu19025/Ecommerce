@@ -1,5 +1,9 @@
-package com.example.Ecommcerce.models;
+package com.example.Ecommcerce.models.customer;
 
+import com.example.Ecommcerce.models.Address;
+import com.example.Ecommcerce.models.CreditCard;
+import com.example.Ecommcerce.models.CustomerOrder;
+import com.example.Ecommcerce.models.cart.Cart;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -8,14 +12,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.aspectj.weaver.ast.Not;
 import org.hibernate.query.Order;
-import org.hibernate.validator.constraints.CreditCardNumber;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Data
 @NoArgsConstructor
@@ -62,7 +65,7 @@ public class Customer {
 
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
-    private List<Order> orders = new ArrayList<>();
+    private List<CustomerOrder> orders = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)
     private Cart customerCart;

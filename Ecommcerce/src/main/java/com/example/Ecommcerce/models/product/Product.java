@@ -1,6 +1,8 @@
-package com.example.Ecommcerce.models;
+package com.example.Ecommcerce.models.product;
 
 
+import com.example.Ecommcerce.models.CategoryEnum;
+import com.example.Ecommcerce.models.seller.Seller;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
