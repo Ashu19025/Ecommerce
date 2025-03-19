@@ -2,10 +2,7 @@ package com.example.Ecommcerce.models;
 
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +13,8 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EntityScan
+@Entity
+@Table(name = "User_Session")
 public class UserSession {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
