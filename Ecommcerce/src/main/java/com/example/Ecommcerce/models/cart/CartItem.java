@@ -1,7 +1,7 @@
 package com.example.Ecommcerce.models.cart;
 
 
-import com.example.Ecommcerce.models.CustomerOrder;
+import com.example.Ecommcerce.models.Order;
 import com.example.Ecommcerce.models.product.Product;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -27,8 +27,8 @@ public class CartItem {
 
 
     @ManyToOne
-    @JoinColumn(name = "order_id", referencedColumnName = "orderId")
-    private CustomerOrder customerOrder;
+    @JoinColumn(name = "order_id")
+    private Order order;
 
 
 }

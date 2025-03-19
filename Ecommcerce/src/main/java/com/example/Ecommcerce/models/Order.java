@@ -17,7 +17,7 @@ import java.util.List;
 @ToString
 @Entity
 @Table(name = "orders")
-public class CustomerOrder {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer orderId;
@@ -36,7 +36,7 @@ public class CustomerOrder {
 
 
 
-    @OneToMany(mappedBy = "customerOrder", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<CartItem> ordercartitems = new ArrayList<>();
 
     @ManyToOne

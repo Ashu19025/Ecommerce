@@ -2,7 +2,7 @@ package com.example.Ecommcerce.models.customer;
 
 import com.example.Ecommcerce.models.Address;
 import com.example.Ecommcerce.models.CreditCard;
-import com.example.Ecommcerce.models.CustomerOrder;
+import com.example.Ecommcerce.models.Order;
 import com.example.Ecommcerce.models.cart.Cart;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -12,7 +12,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.hibernate.query.Order;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -65,7 +64,7 @@ public class Customer {
 
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
-    private List<CustomerOrder> orders = new ArrayList<>();
+    private List<Order> orders = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)
     private Cart customerCart;
