@@ -1,4 +1,10 @@
 package com.example.Ecommcerce.exception;
 
-public class OrderException {
+public class OrderException extends RuntimeException{
+    public OrderException() {
+
+    }
+    public OrderException(String message) {
+        super(message);
+    }
 }

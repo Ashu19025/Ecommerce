@@ -1,4 +1,11 @@
 package com.example.Ecommcerce.exception;
 
-public class LoginException {
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+public class LoginException extends RuntimeException{
+
+    public LoginException(String message) {
+        super(message);
+    }
 }

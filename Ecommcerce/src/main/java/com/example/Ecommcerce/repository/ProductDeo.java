@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface ProductDao extends JpaRepository<Product,Integer> {
+public interface ProductDeo extends JpaRepository<Product,Integer> {
     @Query("select new com.example.Ecommcerce.models.product.ProductDTO(p.productName, p.manufacturer, p.price, p.quantity) "
             + "from Product p where p.category=:catenum")
     public List<ProductDTO> getAllProductsInACategory(@Param("catenum") CategoryEnum catenum);

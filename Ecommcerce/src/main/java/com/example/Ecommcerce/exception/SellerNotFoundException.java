@@ -1,4 +1,12 @@
 package com.example.Ecommcerce.exception;
 
-public class SellerNotFoundException {
+public class SellerNotFoundException extends RuntimeException {
+    public SellerNotFoundException() {
+        super();
+    }
+
+
+    public SellerNotFoundException(String message) {
+        super(message);
+    }
 }

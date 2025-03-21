@@ -1,4 +1,4 @@
 package com.example.Ecommcerce.controller;
 
-public class ProductNotFound {
+public class ProductNotFound extends Throwable {
 }

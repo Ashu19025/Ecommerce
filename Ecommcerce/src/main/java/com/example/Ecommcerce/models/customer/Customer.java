@@ -39,7 +39,7 @@ public class Customer {
     private String mobileNo;
 
     @NotNull(message = "please enter the email id")
-    @Column(unique = true)
+    @Column(name = "email_id")
     @Email
     private String emailid;
 
@@ -69,4 +69,9 @@ public class Customer {
     @OneToOne(cascade = CascadeType.ALL)
     private Cart customerCart;
 
+    public void setCreatedOn(LocalDateTime now) {
+    }
+
+    public void setLastName(@Pattern(regexp = "[A-Za-z.\\s]+", message = "Enter valid characters in last name") String lastName) {
+    }
 }
