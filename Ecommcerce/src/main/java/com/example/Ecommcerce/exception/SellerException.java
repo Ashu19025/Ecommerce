@@ -1,6 +1,6 @@
 package com.example.Ecommcerce.exception;
 
-public class SellerException {
+public class SellerException extends Throwable {
     public SellerException() {
         super();
     }

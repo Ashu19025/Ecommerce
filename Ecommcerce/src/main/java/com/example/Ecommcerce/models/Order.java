@@ -2,11 +2,13 @@ package com.example.Ecommcerce.models;
 
 import com.example.Ecommcerce.models.cart.CartItem;
 import com.example.Ecommcerce.models.customer.Customer;
+import com.example.Ecommcerce.service.OrderServiceImpl;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +26,7 @@ public class Order {
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    private OrderStatusValue orderStatus;
+    private OrderServiceImpl.OrderStatus orderStatus;
 
     private Double total;
     private String cardNumber;
@@ -42,5 +44,13 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "address_id", referencedColumnName = "addressId")
     private Address address;
+    private LocalDate date;
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+    @Enumerated(EnumType.STRING)
+    private OrderServiceImpl.OrderStatus orderStatusValue;
+
 
 }

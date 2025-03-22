@@ -19,4 +19,8 @@ public class CartDTO {
 
     @Min(1)
     private Integer quantity;
+
+    public CartDTO(Integer productId) {
+
+    }
 }
