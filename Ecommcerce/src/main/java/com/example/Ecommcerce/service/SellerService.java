@@ -6,6 +6,8 @@ import com.example.Ecommcerce.models.seller.Seller;
 import com.example.Ecommcerce.models.seller.SellerDTO;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

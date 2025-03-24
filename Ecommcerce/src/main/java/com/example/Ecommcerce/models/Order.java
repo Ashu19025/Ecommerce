@@ -24,9 +24,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer orderId;
 
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    private OrderServiceImpl.OrderStatus orderStatus;
+
 
     private Double total;
     private String cardNumber;
@@ -46,11 +44,11 @@ public class Order {
     private Address address;
     private LocalDate date;
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-    @Enumerated(EnumType.STRING)
-    private OrderServiceImpl.OrderStatus orderStatusValue;
+
+    private OrderStatus orderStatus;
+
+
+
 
 
 }

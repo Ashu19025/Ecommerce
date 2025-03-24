@@ -15,7 +15,7 @@ import java.util.UUID;
 public class UserSession {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Only on primary key
+    @GeneratedValue(strategy = GenerationType.AUTO) // Only on primary key
     private Integer sessionId;
 
     @Column(unique = true, nullable = false)

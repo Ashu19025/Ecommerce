@@ -49,4 +49,9 @@ public class Seller {
     private List<Product> product;
 
 
+    @Version // This field helps in detecting concurrent updates
+    private int version;
+
+
+
 }

@@ -26,5 +26,5 @@ public interface OrderService {
     public Customer getCustomerByOrderid(Integer orderId) throws OrderException;
 
 
-
+    Customer getCustomerByOrderId(Integer orderId) throws OrderException;
 }

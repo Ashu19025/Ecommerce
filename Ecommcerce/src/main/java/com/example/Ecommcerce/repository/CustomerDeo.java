@@ -17,4 +17,5 @@ public interface CustomerDeo extends JpaRepository<Customer,Integer> {
     Optional<Customer> findByMobileNo(@NotNull(message = "please enter the mobile Number") @Pattern(regexp = "[6789]{1}[0-9]{9}", message = "Enter valid 10 digit mobile number") String mobileNo);
 
     Optional<Customer> findByEmailid(@Email String emailid);
+
 }

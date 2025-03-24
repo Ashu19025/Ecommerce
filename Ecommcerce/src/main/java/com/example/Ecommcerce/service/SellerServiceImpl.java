@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SellerServiceImpl {
+public class SellerServiceImpl implements SellerService { // Implement the interface
 
     @Autowired
     private SellerDeo sellerDao;
@@ -26,10 +26,12 @@ public class SellerServiceImpl {
     @Autowired
     private SessionDeo sessionDao;
 
+    @Override
     public Seller addSeller(Seller seller) {
         return sellerDao.save(seller);
     }
 
+    @Override
     public List<Seller> getAllSellers() throws SellerException {
         List<Seller> sellers = sellerDao.findAll();
         if (sellers.isEmpty()) {
@@ -38,11 +40,13 @@ public class SellerServiceImpl {
         return sellers;
     }
 
+    @Override
     public Seller getSellerById(Integer sellerId) throws SellerException {
         return sellerDao.findById(sellerId)
                 .orElseThrow(() -> new SellerException("Seller not found for this ID: " + sellerId));
     }
 
+    @Override
     public Seller updateSeller(Seller seller, String token) throws SellerException, LoginException {
         validateSellerToken(token);
         loginService.checkTokenStatus(token);
@@ -53,6 +57,7 @@ public class SellerServiceImpl {
         return sellerDao.save(seller);
     }
 
+    @Override
     public Seller deleteSellerById(Integer sellerId, String token) throws SellerException, LoginException {
         validateSellerToken(token);
         loginService.checkTokenStatus(token);
@@ -60,7 +65,7 @@ public class SellerServiceImpl {
         Seller existingSeller = sellerDao.findById(sellerId)
                 .orElseThrow(() -> new SellerException("Seller not found for this ID: " + sellerId));
 
-        UserSession user = sessionDao.findByToken(token)
+        UserSession user = SessionDeo.findByToken(token)
                 .orElseThrow(() -> new LoginException("Invalid session token"));
 
         if (user.getUserId() == existingSeller.getSellerId()) {
@@ -77,11 +82,12 @@ public class SellerServiceImpl {
         }
     }
 
+    @Override
     public Seller updateSellerMobile(SellerDTO sellerDto, String token) throws SellerException, LoginException {
         validateSellerToken(token);
         loginService.checkTokenStatus(token);
 
-        UserSession user = sessionDao.findByToken(token)
+        UserSession user = SessionDeo.findByToken(token)
                 .orElseThrow(() -> new LoginException("Invalid session token"));
 
         Seller existingSeller = sellerDao.findById(user.getUserId())
@@ -95,6 +101,7 @@ public class SellerServiceImpl {
         }
     }
 
+    @Override
     public Seller getSellerByMobile(String mobile, String token) throws SellerException, LoginException {
         validateSellerToken(token);
         loginService.checkTokenStatus(token);
@@ -103,22 +110,24 @@ public class SellerServiceImpl {
                 .orElseThrow(() -> new SellerException("Seller not found with given mobile"));
     }
 
+    @Override
     public Seller getCurrentlyLoggedInSeller(String token) throws SellerException, LoginException {
         validateSellerToken(token);
         loginService.checkTokenStatus(token);
 
-        UserSession user = sessionDao.findByToken(token)
+        UserSession user = SessionDeo.findByToken(token)
                 .orElseThrow(() -> new LoginException("Invalid session token"));
 
         return sellerDao.findById(user.getUserId())
                 .orElseThrow(() -> new SellerException("Seller not found for this ID"));
     }
 
+    @Override
     public SessionDTO updateSellerPassword(SellerDTO sellerDto, String token) throws SellerException, LoginException {
         validateSellerToken(token);
         loginService.checkTokenStatus(token);
 
-        UserSession user = sessionDao.findByToken(token)
+        UserSession user = SessionDeo.findByToken(token)
                 .orElseThrow(() -> new LoginException("Invalid session token"));
 
         Seller existingSeller = sellerDao.findById(user.getUserId())
